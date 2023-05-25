@@ -113,6 +113,9 @@ io.on("connection", (socket) => {
     io.to(doctor.socketid).emit("patientAssigned", patient)
     io.to(patient.socketid).emit("doctorAssigned", doctor)
   })
+  socket.on("mute", (data) => {
+    io.to(data).emit("mute", data)
+  })
 })
 
 // start server
